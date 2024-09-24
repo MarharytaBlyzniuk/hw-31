@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>hello</h1>
+<script>
+    import {getData, postData, putData, patchData, deleteData} from 'main.js'
+    /*1*/
+    getData('/posts/1')
+        .then(data => console.log('Результат:', data))
+        .catch(err => console.error('Фінальна помилка:', err));
+
+    /*2*/
+    const postDataExample = {
+        title: 'foo',
+        body: 'bar',
+        userId: 1
+    };
+    postData('/posts', postDataExample)
+        .then(data => console.log('Результат:', data))
+        .catch(err => console.error('Фінальна помилка:', err));
+
+    /*3*/
+    const updatedDataExample = {
+        title: 'Updated Title',
+        body: 'Updated content',
+        userId: 1
+    };
+
+    putData(1, updatedDataExample)
+        .then(data => console.log('Результат:', data))
+        .catch(err => console.error('Фінальна помилка:', err));
+
+    /*4*/
+    const partialUpdateData = {
+        title: 'Partially Updated Title'
+    };
+
+    patchData(1, partialUpdateData)
+        .then(data => console.log('Результат:', data))
+        .catch(err => console.error('Фінальна помилка:', err));
+
+    /*5*/
+    deleteData(1)
+        .then(result => console.log('Результат:', result))
+        .catch(err => console.error('Фінальна помилка:', err));
+</script>
+
+
+</body>
+</html>
