@@ -276,7 +276,7 @@ async function patchData(id, data) {
  *
  */
 
-export async function deleteData(id) {
+async function deleteData(id) {
     const url = `https://jsonplaceholder.typicode.com/posts/${id}`;
 
     try {
@@ -298,15 +298,16 @@ export async function deleteData(id) {
     }
 }
 
-deleteData(1)
-    .then(result => {
-        if (result === true) {
-            console.log('Ресурс успішно видалено.');
-        } else {
-            console.error('Помилка:', result);
-        }
-    })
-    .catch(error => console.error('Помилка:', error));
+//
+//deleteData(1)
+//  .then(result => {
+//      if (result === true) {
+//          console.log('Ресурс успішно видалено.');
+//      } else {
+//          console.error('Помилка:', result);
+//      }
+//  })
+//  .catch(error => console.error('Помилка:', error));
 // Приклад виклику функції:
 
 
